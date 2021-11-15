@@ -65,3 +65,11 @@
 - Loose coupling (separate construction from representation).
 - Finer control on the build process -> Allow multiple steps or assemble objects more easily.
 
+### <a name="#factory-object"></a>Factory Object (not gang of four's)
+##### Keys
+- Factory could create various type of object without changing Client code.
+- coding to interface, not implementation.
+
+##### Benefits
+- Clients can instantiate the same set of classes.
+- Cut out redundant code and made the software easier.
