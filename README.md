@@ -1,23 +1,23 @@
 # Design Patterns
 
+- [Singleton Pattern](#singleton) <br /> 
+- [Builder Pattern](#builder)
+
+<hr /> 
+
 ## Creational Patterns
-### Singleton
+### <a name="#singleton"></a>Singleton
 ##### Keys
 - One instance + one access point.
-- Encapsulate constructor. Only allow accessing throgh getInstance method.
+- Encapsulate the constructor. Only allow accessing through getInstance method.
 - Use a variable to validate uniqueness of the instance.
 - Prevent creating new instances, hence prevent conflict and make it consistent.
-
-##### Issues
-- Multiple classes require the same object instance.
-- There 'can only be one' object for the entire application.
-- It must be guaranteed that there is only one object.
-- e.g. FileSystem, Window Manager
 
 ##### When
 - Only one instance of class required.
 - Must be one access point.
 - Need to manage object instances
+- e.g. FileSystem, Window Manager
 
 ##### Benefits
 - Controlled access to one instance.
@@ -28,3 +28,31 @@
 
 ##### Drawbacks
 - State of the singleton must be shareable between program executions.
+
+
+### <a name="#builder"></a>Builder
+##### Keys
+- 'Separate the construction' of a complex object from its representation so that the same construction process can create different representations
+- **One build process** for multiple similar objects
+- **Advance control** over the build process.
+
+##### When
+- Separate construction with internal representation.
+- One process have multiple object representation (or various implementation)
+- need to assemble objects
+- e.g. query construction to use with many databases
+
+##### Implementation
+- have object and builder interface.
+- each can have various implementation.
+1. Client creates a concreteBuilder.
+2. Client creates a new director and pass concreteBuilder to the director.
+3. Director constructs the objects by buildPart().
+4. Client asks the result from concreteObject that got built.
+
+##### Benefits
+- Uniform production creation via an interface.
+- Abstract building process.
+- Loose coupling (separate construction from representation).
+- Finer control on the build process -> Allow multiple steps or assemble objects more easily.
+
