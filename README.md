@@ -10,6 +10,8 @@
 - [Creational Patterns](#creational)
     - [Singleton Pattern](#singleton) 
     - [Builder Pattern](#builder)
+    - [Factory Object](#factory-object)
+    - [Factory Method](#factory-method)
 
 <hr /> 
 
@@ -73,3 +75,18 @@
 ##### Benefits
 - Clients can instantiate the same set of classes.
 - Cut out redundant code and made the software easier.
+
+### <a name="#factory-method"></a>Factory Method
+##### Keys
+- Define an interface for creating objects, but let subclasses decide which class to instantiate.
+- Virtual Constructor: Factory Method lets a class defer instantiation to subclasses.
+- Instead of creating a new instance, using Factory method able us to generalize the class, hence 'coding to interface, not implementation'
+
+##### When
+- Class can't expect the type of object it must create.
+- Subclasses must decide what types of objects are to be created.
+
+##### Benefits
+- Delegate object creation until runtime.
+- Hooks for subclasses.
+- Base class can provide a 'default implementation'.

@@ -1,4 +1,4 @@
-package creational.FactoryObject;
+package creational.factoryobject;
 
 public class KnifeFactory {
     public Knife createKnife(String knifeType) {
