@@ -1,11 +1,19 @@
 # Design Patterns
 
-- [Singleton Pattern](#singleton) <br /> 
-- [Builder Pattern](#builder)
+<em>**source**</em>
+- https://elqoo.thinkific.com/courses/take/design-patterns-in-java
+- https://www.coursera.org/learn/design-patterns
+
+<hr />
+
+## Contents
+- [Creational Patterns](#creational)
+    - [Singleton Pattern](#singleton) 
+    - [Builder Pattern](#builder)
 
 <hr /> 
 
-## Creational Patterns
+## <a name="#creational"></a>Creational Patterns
 ### <a name="#singleton"></a>Singleton
 ##### Keys
 - One instance + one access point.
@@ -31,6 +39,7 @@
 
 
 ### <a name="#builder"></a>Builder
+![image](resources/builder-pattern-structure.png)
 ##### Keys
 - 'Separate the construction' of a complex object from its representation so that the same construction process can create different representations
 - **One build process** for multiple similar objects
