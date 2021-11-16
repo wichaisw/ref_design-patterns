@@ -11,7 +11,11 @@
     - [Singleton Pattern](#singleton) 
     - [Builder Pattern](#builder)
     - [Factory Object](#factory-object)
+    - [Abstract Factory](#abstract-factory)
     - [Factory Method](#factory-method)
+    - [Prototype](#prototype)
+        - [Factory vs Prototype](#factory-vs-prototype)
+
 
 <hr /> 
 
@@ -38,7 +42,6 @@
 
 ##### Drawbacks
 - State of the singleton must be shareable between program executions.
-
 
 ### <a name="#builder"></a>Builder
 ![image](resources/builder-pattern-structure.png)
@@ -76,6 +79,9 @@
 - Clients can instantiate the same set of classes.
 - Cut out redundant code and made the software easier.
 
+### <a name="#abstract-factory"></a>Abstract Factory
+- Just add an abstract layer atop of Factory Object, so it could have subclasses.
+
 ### <a name="#factory-method"></a>Factory Method
 ##### Keys
 - Define an interface for creating objects, but let subclasses decide which class to instantiate.
@@ -90,3 +96,41 @@
 - Delegate object creation until runtime.
 - Hooks for subclasses.
 - Base class can provide a 'default implementation'.
+
+### <a name="#prototype"></a>Prototype
+##### Keys
+- Specify the kinds of objects to create using a prototypical instance, and create new
+objects by copying this prototype.
+- Configure object creation by cloning.
+- Avoid building a class hierarchy of factories that parallels the class hierarchy
+  of products.
+  
+##### When
+- Classes to instantiate are specific at run time.
+- Avoid building class hierarchies.
+- A class can have multiple instances of state.
+  
+##### Benefits
+- Add/remove products at runtime.
+- Reduce subclassing.
+- Configure application dynamically.
+- Different values for new objects.
+
+##### Drawbacks
+- Require creating prototypes before other object creation.
+
+
+###### <a name="#factory-vs-prototype"></a><em>Factory vs Prototype</em>
+>Factory pattern is used to introduce loose coupling between objects as the factory will take care of all the instantiation logic hiding it from the clients.
+>- return a new instance of the type we are interested
+>- factory Method creation is carried away through inheritance
+>- factory patterns create objects based on a well-defined class hierarchy. The caller can pass in arguments, and the factories use them to determine which objects to create.
+>- Factory method is used to delegate the responsibility of choosing which implementation or subclass you want to use like Car interface can be implemented by SportsCar and EconomicalCar and based upon budget factory will return appropriate object.
+>
+>Prototype pattern on the other hand, is used when the cost of creating an object is expensive, and it's ok to copy an existing instance than creating a new instance.
+>- return an instance of itself with clone method
+>- prototype creation through delegation i.e Polymorphism
+>- prototype pattern create objects based on a well-defined class hierarchy. The caller can pass in arguments, and the factories use them to determine which objects to create.
+>- Prototype is used in scenarios where construction of the object is a costly affair. It could be in terms of memory or computation for example, you have complex objects like Trade so, you can create a basic default object and on runtime can just clone it and do some changes as per requirement.
+>
+>An Abstract Factory can use prototypes under the hood to increase its flexibility in providing instances of different classes.
