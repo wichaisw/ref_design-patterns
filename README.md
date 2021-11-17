@@ -194,4 +194,31 @@ objects by copying this prototype.
 - Doesn't work for a class with many subclasses (can't extend them all).
 
 ### <a name="#composite"></a>Composite
+![image](resources/composite-pattern-structure.png)
+![image](resources/composite-pattern-structure-2.png)
 ##### Keys
+- Compose objects into tree structures.
+- Represent part-whole hierarchies of objects.
+- Enforcing polymorphism across each class through implementing an interface (or inheriting from a superclass).
+- Use Recursive composition: A composite object can contain other composite objects since it's a subtype of component.
+- Decomposition + generalization: They break a whole into parts, but have the whole and parts both conform to a common type.
+
+##### When
+- Want to use individual type of objects to build a tree-like structure.
+- Treats individual of objects uniformly without checking their types.
+- Ignore differences between compositions and individual items.
+
+##### Implementation
+1. Design the interface that defines the overall type.
+2. Implement the composite class.
+3. Implement the leaf class.
+
+##### Benefits
+- Define class hierarchies of consistent objects.
+- Client is simplified 
+    - Abstraction from client.
+    - No distinction between child and composite objects.
+- Easy to add new components.
+
+##### Drawbacks
+- Can be hard for new components with different expectations.
