@@ -1,5 +1,6 @@
 package structural.adapter.rectangle;
 
+// Adaptee
 public class NonScalableRectangle {
     private float width = 0f;
     private float height = 0f;

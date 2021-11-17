@@ -2,7 +2,7 @@ package structural.adapter.webservice;
 
 import com.google.gson.Gson;
 
-
+// Adapter
 public class WebAdapter implements WebRequester {
     private WebService service;
 

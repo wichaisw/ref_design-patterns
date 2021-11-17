@@ -216,7 +216,7 @@ objects by copying this prototype.
 ##### Benefits
 - Define class hierarchies of consistent objects.
 - Client is simplified 
-    - Abstraction from client.
+    - Abstraction from the client.
     - No distinction between child and composite objects.
 - Easy to add new components.
 

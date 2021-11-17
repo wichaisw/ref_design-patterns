@@ -1,5 +1,6 @@
 package structural.adapter.rectangle;
 
+// Adapter
 public class ScalableRectangleAdapter implements Rectangle {
     NonScalableRectangle rectangle;
 
