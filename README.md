@@ -8,16 +8,16 @@
 
 ## Contents
 - [Creational Patterns](#creational-patterns)
-    - [Singleton Pattern](#singleton) 
-    - [Builder Pattern](#builder)
+    - [Singleton](#singleton) 
+    - [Builder](#builder)
     - [Factory Object](#factory-object)
     - [Abstract Factory](#abstract-factory)
     - [Factory Method](#factory-method)
     - [Prototype](#prototype)
         - [Factory vs Prototype](#factory-vs-prototype)
 - [Structural Patterns](#structural-patterns)
-    - [Facade Pattern](#facade)
-    - [Adapter Pattern](#adapter)
+    - [Facade](#facade)
+    - [Adapter](#adapter)
 
 
 <hr /> 
@@ -139,7 +139,7 @@ objects by copying this prototype.
 >An Abstract Factory can use prototypes under the hood to increase its flexibility in providing instances of different classes.
 
 ##### <a name="#structural-patterns"><a>Structural Patterns
-### <a name="#facade"></a>Facade Pattern
+### <a name="#facade"></a>Facade
 ##### Keys
 - A facade simply acts as a point of entry into your subsystem and does not add more functionality to the subsystem.
     - Wrapper class allow Client class to interact through the Facade.
@@ -160,3 +160,34 @@ objects by copying this prototype.
 - Facade introduces an extra programming layer.
 
 
+### <a name="#adapter"></a>Adapter
+![image](resources/adapter-pattern-structure.png)
+##### Keys
+- Adapters change the interface of a class without changing its basic functionality.
+- Providing a compatible interface to help facilitate communication between two existing systems.
+- The Adapter wrap the Adaptee and expose a target interface to the client.
+- The Adapter indirectly change the Adaptee's interface into one that the client is expecting by implementing a target interface.
+- The Adapter indirectly translates the Client's request into a request that the Adaptee class is expecting.
+- The Adapter reuses an existing Adaptee with an incompatible interface.
+
+##### When
+- The Client and Adaptee classes have incompatible interfaces.
+- The Adaptee might be third-party library which we can't change its interface, so we use Adapter.
+
+##### Participants
+- A client class. This class is the part of your system that wants to use a third-party library or external systems.
+- An adaptee class. This class is the third-party library or external system that is to be used.
+- An adapter class. This class sits between the client and the adaptee. The adapter conforms to what the client is expecting to see, by implementing a target interface. The adapter also translates the client request into a message that the adaptee will understand, and returns the translated request to the adaptee. The adapter is a kind of wrapper class.
+- A target interface. This is used by the client to send a request to the adapter.
+
+##### Implementation
+1. Design the target interface.
+2. Implement the target interface with the Adapter class.
+3. Send the request from the Client to the Adapter using the target interface.
+
+##### Benefits
+- Adapter can override Adaptee behaviors (it is a subclass).
+- One Adapter can use many Adaptees.
+
+##### Drawbacks
+- Doesn't work for a class with many subclasses (can't extend them all).
