@@ -15,6 +15,9 @@
     - [Factory Method](#factory-method)
     - [Prototype](#prototype)
         - [Factory vs Prototype](#factory-vs-prototype)
+- [Structural Patterns](#structural-patterns)
+    - [Facade Pattern](#facade)
+    - [Adapter Pattern](#adapter)
 
 
 <hr /> 
@@ -134,3 +137,26 @@ objects by copying this prototype.
 >- Prototype is used in scenarios where construction of the object is a costly affair. It could be in terms of memory or computation for example, you have complex objects like Trade so, you can create a basic default object and on runtime can just clone it and do some changes as per requirement.
 >
 >An Abstract Factory can use prototypes under the hood to increase its flexibility in providing instances of different classes.
+
+##### <a name="#structural-patterns"><a>Structural Patterns
+### <a name="#facade"></a>Facade Pattern
+##### Keys
+- A facade simply acts as a point of entry into your subsystem and does not add more functionality to the subsystem.
+    - Wrapper class allow Client class to interact through the Facade.
+    - Hide the complexity of a subsystem by encapsulating it behind a unifying wrapper called a facade class.
+- Abstract complex from client classes.
+    - Remove the need for client classes to manage a subsystem on their own. (
+    - Less coupling between subsystem & client classes.
+    - Prevent all client classes from seeing the account objects and how these accounts behave.
+- Handles instantiation and redirection of tasks to the appropriate class within the system.
+
+##### Benefits
+- Subsystem is easier to use.
+    - Client don't require specific knowledge.
+- Loose coupling.
+- Subsystem can still be used directly (if necessary).
+
+##### Drawbacks
+- Facade introduces an extra programming layer.
+
+
