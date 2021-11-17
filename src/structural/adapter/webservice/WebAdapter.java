@@ -1,4 +1,4 @@
-package structural.adapter;
+package structural.adapter.webservice;
 
 import com.google.gson.Gson;
 

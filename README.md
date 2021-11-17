@@ -18,6 +18,7 @@
 - [Structural Patterns](#structural-patterns)
     - [Facade](#facade)
     - [Adapter](#adapter)
+    - [Composite](#composite)
 
 
 <hr /> 
@@ -191,3 +192,6 @@ objects by copying this prototype.
 
 ##### Drawbacks
 - Doesn't work for a class with many subclasses (can't extend them all).
+
+### <a name="#composite"></a>Composite
+##### Keys
