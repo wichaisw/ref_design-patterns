@@ -265,7 +265,12 @@ objects by copying this prototype.
 
 <em>example</em>
 
->! [![image](resources/decorator-pattern-structure-2.png)]
+<details>
+    <summary><em>Example</em></summary>
+    <img src="resources/decorator-pattern-structure-2.png" alt="decorator-exmaple" />
+</details>
+    
+
 
 ###### Aggregation
 - Let us create stack of objects.
