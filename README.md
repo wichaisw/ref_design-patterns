@@ -3,6 +3,7 @@
 <em>**source**</em>
 - https://elqoo.thinkific.com/courses/take/design-patterns-in-java
 - https://www.coursera.org/learn/design-patterns
+- https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-170-laboratory-in-software-engineering-fall-2005/
 
 <hr />
 
@@ -19,6 +20,7 @@
     - [Facade](#facade)
     - [Adapter](#adapter)
     - [Composite](#composite)
+    - [Proxy] (#proxy)
 
 
 <hr /> 
@@ -126,20 +128,20 @@ objects by copying this prototype.
 
 ###### <a name="#factory-vs-prototype"></a><em>Factory vs Prototype</em>
 >Factory pattern is used to introduce loose coupling between objects as the factory will take care of all the instantiation logic hiding it from the clients.
->- return a new instance of the type we are interested
->- factory Method creation is carried away through inheritance
->- factory patterns create objects based on a well-defined class hierarchy. The caller can pass in arguments, and the factories use them to determine which objects to create.
+>- Return a new instance of the type we are interested
+>- Factory Method creation is carried away through inheritance
+>- Factory patterns create objects based on a well-defined class hierarchy. The caller can pass in arguments, and the factories use them to determine which objects to create.
 >- Factory method is used to delegate the responsibility of choosing which implementation or subclass you want to use like Car interface can be implemented by SportsCar and EconomicalCar and based upon budget factory will return appropriate object.
 >
 >Prototype pattern on the other hand, is used when the cost of creating an object is expensive, and it's ok to copy an existing instance than creating a new instance.
->- return an instance of itself with clone method
->- prototype creation through delegation i.e Polymorphism
->- prototype pattern create objects based on a well-defined class hierarchy. The caller can pass in arguments, and the factories use them to determine which objects to create.
+>- Return an instance of itself with clone method
+>- Prototype creation through delegation i.e Polymorphism
+>- Prototype pattern adds an extra layer of abstraction on top of the object creation process, objects are created (or cloned) based on runtime objects not just based on a class hierarchy.
 >- Prototype is used in scenarios where construction of the object is a costly affair. It could be in terms of memory or computation for example, you have complex objects like Trade so, you can create a basic default object and on runtime can just clone it and do some changes as per requirement.
 >
 >An Abstract Factory can use prototypes under the hood to increase its flexibility in providing instances of different classes.
 
-##### <a name="#structural-patterns"><a>Structural Patterns
+## <a name="#structural-patterns"><a>Structural Patterns
 ### <a name="#facade"></a>Facade
 ##### Keys
 - A facade simply acts as a point of entry into your subsystem and does not add more functionality to the subsystem.
@@ -222,3 +224,29 @@ objects by copying this prototype.
 
 ##### Drawbacks
 - Can be hard for new components with different expectations.
+
+### <a name="#proxy"></a>Proxy
+##### Keys
+- Use proxy class to wrap the real subject class to have a polymorphic design, so the client class can expect the same interface for the proxy and real subject classes.
+- Use a lightweight proxy in place of a resource intensive object until it's actually needed. act as a lighter version of the real subject class (supposes to be lighter. so not all request is delegated).
+- Control access to the real subject class. 
+    - Implement some form of intelligent verification of request from client code.
+    - Determine if, how, and to whom the request should be forwarded to. 
+- Present a local representation of a system that is not in the same physical or virtual space.
+- Acts as a simplified, or lightweight version, of the original object.
+
+##### When
+- Act as a protection proxy; The real subject class may contains sensitive information.
+- Act as a wrapper virtual proxy; The real subject class is resource intensive to instantiate.
+- Act as a remote proxy; proxy class is local, while the real subject class exist remotely.
+- Require extra functionality. 
+
+##### Implementation
+1. Design the subject interface.
+2. Implement the real subject class.
+3. Implement the proxy class.
+
+##### Benefits
+- Defer creating resource intensive object until needed.
+- Control access to specific object.
+- Act as a local representation for a remote system.
