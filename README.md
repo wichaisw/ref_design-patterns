@@ -20,7 +20,9 @@
     - [Facade](#facade)
     - [Adapter](#adapter)
     - [Composite](#composite)
-    - [Proxy] (#proxy)
+    - [Proxy](#proxy)
+    - [Decorator](#decorator)
+        - [Decorator vs Composite](#decorator-vs-composite)
 
 
 <hr /> 
@@ -250,3 +252,50 @@ objects by copying this prototype.
 - Defer creating resource intensive object until needed.
 - Control access to specific object.
 - Act as a local representation for a remote system.
+
+### <a name="#decorator"></a>Decorator
+![image](resources/decorator-pattern-structure.png)
+
+##### Keys
+- A flexible alternative to subclassing for extending functionality.
+- Decorator aggregates other types of components, which wil allow us to 'stack' components on top of each other.
+- Each decorator object in the stack is aggregated in a 1-1 relationship with the object below it in the stack.
+- Decorator serves as the abstract superclass of concrete decorator classes that will each provide an increment of behavior.
+- By combining aggregation and polymorphism, we can recursively invoke the same behavior execute upwards from the concrete component object. 
+
+<em>example</em>
+
+>! [![image](resources/decorator-pattern-structure-2.png)]
+
+###### Aggregation
+- Let us create stack of objects.
+- Aggregation is used to represent a 'has a' or weak containment relationship between 2 objects.
+- Aggregation stacks: each level builds a stack of objects, that know about its behavior and augmented one underneath it.
+- The Aggregation relationship is always 1-1 in decorator design pattern.
+- Makes use of both interfaces and inheritance.
+
+###### <a name="#decorator-vs-composite"></a>Decorator vs Composite
+- Decorator is more like a stack of objects, where Composite is a tree.
+
+##### When
+- Add functionality to objects, without affecting other objects.
+- Functionalities can be taken away in the future.
+- Extension by subclassing is difficult (need to duplicate a lot of code).
+
+##### Implementation
+1. Design the component interface.
+2. Implement the interface with your base concrete component class.
+3. Implement the interface with your abstract class decorator.
+4. Inherit from the abstract decorator and implement the component interface with concrete decorator classes.
+
+##### Benefits
+- More flexible than inheritance.
+- Allow objects to dynamically add behaviors to others at runtime.
+    - use aggregation as a substitute for pure inheritance.
+    - implement functionality when you need it, where you need it in the class hierarchy.    
+- Reduce the number of classes needed to be created (better than inheritance).
+
+##### Drawbacks
+- Object identity cannot be used with decorators.
+    - A decorator acts as a transparent enclosure, but a decorated component is not identical to the component itself. 
+- Too many small decorator objects might cost performance problem.
