@@ -25,6 +25,7 @@
         - [Decorator vs Composite](#decorator-vs-composite)
 - [Behavioral Patterns](#behavioral-patterns)
     - [Template Method](#template-method)
+    - [Chain of Responsibility](#chain-of-responsibility)
 
 
 <hr /> 
@@ -330,3 +331,26 @@ objects by copying this prototype.
 ##### Benefits
 - Provide hooks.
 - Avoid code duplication.
+
+### <a name="#chain-of-responsibility"></a>Chain of Responsibility
+##### Keys
+- A chain of objects that responsible for handling request (i.e. Express.js middleware callback handler).
+
+##### Implementation
+1. Check if rule matches.
+2. if it matches, do something specific.
+3. if it doesn't match, call the next filter in the list.
+- Can use Template Pattern to ensure that each class will handle each class in a similar way, following the required steps.
+
+##### Benefits
+- Reduce coupling.
+    - Avoid coupling the sender to the receiver by giving more than one object the chance to handle the request. 
+    - The sender has no explicit knowledge of each other, and an object in the chain doesn't have to know about the chain's structure.
+
+##### Drawbacks
+- Receipt isn't guaranteed.
+    -Since a request has no explicit receiver, there's no guarantee it'll be handled.
+    - the request can fall off the end of the chain without ever being handled. 
+    - A request can also go unhandled when the chain is not configured properly.
+    - if the rule doesn't match in a filter, but forgot to pass the request to the next filter then the handling end prematurely.
+
