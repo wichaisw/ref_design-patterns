@@ -23,6 +23,8 @@
     - [Proxy](#proxy)
     - [Decorator](#decorator)
         - [Decorator vs Composite](#decorator-vs-composite)
+- [Behavioral Patterns](#behavioral-patterns)
+    - [Template Method](#template-method)
 
 
 <hr /> 
@@ -270,8 +272,6 @@ objects by copying this prototype.
     <img src="resources/decorator-pattern-structure-2.png" alt="decorator-exmaple" />
 </details>
     
-
-
 ###### Aggregation
 - Let us create stack of objects.
 - Aggregation is used to represent a 'has a' or weak containment relationship between 2 objects.
@@ -304,3 +304,29 @@ objects by copying this prototype.
 - Object identity cannot be used with decorators.
     - A decorator acts as a transparent enclosure, but a decorated component is not identical to the component itself. 
 - Too many small decorator objects might cost performance problem.
+
+## <a name="#behavioral"></a>Behavioral Patterns
+### <a name="#template-method"></a>Template Method
+##### Keys
+- Defining a skeleton.
+- Deferring some implementation steps to subclasses.
+- Generalization + Inheritance.
+
+##### When
+- Have two classes (or more) with similar functionalities.
+    - Can generalize two classes into a new superclass.
+    - it's simple and can be used most of the time.
+
+##### Implementation
+- Template Class
+    - Must be an abstract class.
+    - Has a template method that has several steps, could be final (i.e. driveToDestination).
+    - The steps which will be defined by the subclasses (i.e. accelerate, steer, and brake of SelfDrivingVehicle template) are defined abstractly.
+    - If some steps are common to all the subclasses, it can be defined as a private method in the abstract superclass.
+    - It's important for template methods to specify which operations are hooks (may
+      be overridden) and which are abstract operations (must be overridden).
+    - A hook operation (in abstract base class) often does nothing by default.
+    
+##### Benefits
+- Provide hooks.
+- Avoid code duplication.
