@@ -26,6 +26,7 @@
 - [Behavioral Patterns](#behavioral-patterns)
     - [Template Method](#template-method)
     - [Chain of Responsibility](#chain-of-responsibility)
+    - [State](#state)
 
 
 <hr /> 
@@ -353,4 +354,23 @@ objects by copying this prototype.
     - the request can fall off the end of the chain without ever being handled. 
     - A request can also go unhandled when the chain is not configured properly.
     - if the rule doesn't match in a filter, but forgot to pass the request to the next filter then the handling end prematurely.
+    
+### <a name="#state"></a>State
+![image](resources/state-pattern-structure.png)
 
+##### Keys
+- When state changes, the behavior can be altered.
+- Have an object for each state.
+    - When state changes, simply change the state object.
+    - Avoid complex if-else-structures.
+- Only context is available for clients to see!
+- state pattern != state machine
+      
+##### When
+- Need to change behavior of an object based upon the state it is in at runtime.
+
+##### Benefits
+- State related behavior is centralized
+- Avoid complex if-else-structures
+    - When state changes, simply change the state object.
+    - Implementation is done in the state object.
