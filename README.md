@@ -24,6 +24,7 @@
     - [Proxy](#proxy)
     - [Decorator](#decorator)
         - [Decorator vs Composite](#decorator-vs-composite)
+    - [Flyweight](#flyweight)
 - [Behavioral Patterns](#behavioral-patterns)
     - [Template Method](#template-method)
     - [Chain of Responsibility](#chain-of-responsibility)
@@ -308,6 +309,28 @@ objects by copying this prototype.
 - Object identity cannot be used with decorators.
     - A decorator acts as a transparent enclosure, but a decorated component is not identical to the component itself. 
 - Too many small decorator objects might cost performance problem.
+
+### <a name="#flyweight"></a>Flyweight
+![image](resources/flyweight-pattern-structure.png)
+##### Keys
+- Use sharing to support large number of fine-grained objects efficiently.
+- Reusing instances of a class wherever possible.
+- (Can be used with composite pattern to have leaf nodes ad flyweight).
+
+##### When
+- Large number of objects.
+- High storage costs.
+- Extrinsic state(sharable).
+- Many object that can be replaced by few objects.
+- Object identity isn't necessary.
+
+##### Benefits
+- Reduce number of instances.
+- Share intrinsic state per object.
+- While using static fields, there can only ever be one instance of the object in use at any one point in time, flyweight pattern can have any number of different instances in use simultaneously.
+
+##### Drawbacks
+- Factory needs to manage shared instances.
 
 ## <a name="#behavioral"></a>Behavioral Patterns
 ### <a name="#template-method"></a>Template Method
