@@ -4,6 +4,7 @@
 - https://elqoo.thinkific.com/courses/take/design-patterns-in-java
 - https://www.coursera.org/learn/design-patterns
 - https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-170-laboratory-in-software-engineering-fall-2005/
+- https://stackoverflow.com/questions/1658192/what-is-the-difference-between-strategy-design-pattern-and-state-design-pattern
 
 <hr />
 
@@ -28,7 +29,7 @@
     - [Chain of Responsibility](#chain-of-responsibility)
     - [State](#state)
     - [Strategy](#strategy)
-
+        - [State vs Strategy](#state-vs-strategy)
 
 <hr /> 
 
@@ -377,5 +378,42 @@ objects by copying this prototype.
     - Implementation is done in the state object.
 
 ### <a name="#strategy"></a>Strategy
+![image](resources/strategy-pattern-structure.png)
 ##### Keys
-- Encapsulate algorithms. 
+- Encapsulate algorithms and make them interchangeable at runtime.
+- a.k.a policy pattern.
+
+##### When
+- Classes only differ in behavior.
+- Need different variants of an algorithm
+- An algorithm uses data that clients shouldn't know about. Use the Strategy pattern to avoid exposing complex, algorithm-specific data structures.
+
+##### Implementation
+- Context can pass necessary data to strategy.
+- Clients of the context can pass a strategy
+- Context forwards clients request to the strategy.
+
+##### Benefits
+- Algorithms can vary for each client that use it.
+- Algorithms families use inheritance for common parts.
+- Avoid complex if-else-structures.
+- Clients can choose the required behavior.
+
+##### Drawbacks
+- Pattern increase number of objects in application.
+
+###### <a name="#state-vs-strategy"></a>State vs Strategy
+| State | Strategy |
+| ----------- | ----------- |
+| Decides on 'when' to perform them (differently). | Decides on 'how' to perform some action |
+| Encapsulates state-dependent behavior. | Encapsulates an algorithm. |
+| Do different things based on the state, the caller don't have to choose state or behavior  | Have a different implementation that accomplishes (basically) the same thing, the caller can replace its behavior by passing different strategy |
+| The polymorphic call (transition) often causes a change in the next state. | The polymorphic call does not typically change the context. |
+| One state can lead to other state | There are no states or all of them have same state | 
+
+
+The difference simply lies in that they solve different problems:
+
+The State pattern deals with what (state or type) an object is (in) -- it encapsulates state-dependent behavior, whereas
+the Strategy pattern deals with how an object performs a certain task -- it encapsulates an algorithm.
+The constructs for achieving these different goals are however very similar; both patterns are examples of composition with delegation.
