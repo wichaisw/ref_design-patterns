@@ -1,9 +1,9 @@
 package behavioral.state.tcp2;
 
 public class TCPManager {
-    TCPConnectionState currentState;
-    TCPConnectionState openState;
-    TCPConnectionState closedState;
+    private TCPConnectionState currentState;
+    private TCPConnectionState openState;
+    private TCPConnectionState closedState;
 
     public TCPManager() {
         this.closedState = new ClosedTCPConnectionState();

@@ -27,6 +27,7 @@
     - [Template Method](#template-method)
     - [Chain of Responsibility](#chain-of-responsibility)
     - [State](#state)
+    - [Strategy](#strategy)
 
 
 <hr /> 
@@ -374,3 +375,7 @@ objects by copying this prototype.
 - Avoid complex if-else-structures
     - When state changes, simply change the state object.
     - Implementation is done in the state object.
+
+### <a name="#strategy"></a>Strategy
+##### Keys
+- Encapsulate algorithms. 
