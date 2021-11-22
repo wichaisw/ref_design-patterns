@@ -31,6 +31,7 @@
     - [State](#state)
     - [Strategy](#strategy)
         - [State vs Strategy](#state-vs-strategy)
+    - [Command](#command)
 
 <hr /> 
 
@@ -440,3 +441,36 @@ The difference simply lies in that they solve different problems:
 The State pattern deals with what (state or type) an object is (in) -- it encapsulates state-dependent behavior, whereas
 the Strategy pattern deals with how an object performs a certain task -- it encapsulates an algorithm.
 The constructs for achieving these different goals are however very similar; both patterns are examples of composition with delegation.
+
+### <a name="#command"></a>Command
+![image](resources/command-pattern-structure.png)
+##### Keys
+- Commands are an object-oriented replacement for callbacks.
+- Encapsulate a request (invocation) as an object.
+- Parameterize clients with different requests, queues, or log requests.
+- Support undoable operation.
+- Centralized action functionality.
+- a.k.a. Action Pattern, Transaction Pattern.
+
+##### When
+- Want to parameterize objects by an action to perform, like callback function in procedural language.
+- Want to specify, queue, and execute requests at different times.
+- Want action to be undoable.
+- Want to support logging changes.
+- Want to Re-execute code in case of failure.
+
+##### Implementations
+1. Store and schedule different request.
+    - Store them into lists.
+    - Manipulate them before they're completed.
+    - Put them onto a queue.
+2. Undo/Redo
+    - Have historyList and redoList. 
+
+##### Benefits
+- Decouples the object that invokes the operation from the one that
+  knows how to perform it (encapsulate things that need to be execute).
+- Easy to add new Commands, because you don't have to change existing
+  classes.
+- Can undo/redo.
+- Can assemble commands into a composite command.
