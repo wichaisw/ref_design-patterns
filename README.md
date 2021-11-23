@@ -32,6 +32,7 @@
     - [Strategy](#strategy)
         - [State vs Strategy](#state-vs-strategy)
     - [Command](#command)
+    - [Observer](#observer)
 
 <hr /> 
 
@@ -480,3 +481,34 @@ the invoker.
   classes.
 - Can undo/redo.
 - Can assemble commands into a composite command.
+
+### <a name="#observer"></a>Observer
+![image](resources/observer-pattern-sequence.png)
+![image](resources/observer-pattern-structure.png)
+
+##### Keys
+- Observes state in other objects.
+- Defines a one-to-many dependency between objects, so that when one object changes state, all its dependents are notified and updated automatically.
+
+##### When
+- Want to changes or notify others when one item is changed.
+- Don't know how many objects need to be changed.
+
+##### Implementation
+1. Create a Subject superclass which defines 3 methods:
+    - Allow a new observer to subscribe.
+    - Allow a current observer to unsubscribe.
+    - Notify all observers about new changes.
+    - (also have an attribute to keep track of observer)
+2. Concrete instance of subject superclass (i.e. blog).
+3. Observer interface with notify and update methods.
+4. Subscriber class implements the observer interface.
+
+##### Benefits
+- Loose coupling between observers and subjects.
+- Supporting a broadcast model.
+
+##### Drawbacks
+- One change can result in multiple unnecessary notifications.
+- Unexpected update.
+    - observers have no knowledge of each other's presence, so they might cause a cascade of updates to observers and their dependent objects.
