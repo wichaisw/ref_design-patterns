@@ -26,6 +26,10 @@ public class TextEditor {
         return text;
     }
 
+    public void setText(String text) {
+        this.text = text;
+    }
+
     public Queue<Command> getQueue() {
         return queue;
     }

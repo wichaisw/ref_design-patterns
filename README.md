@@ -444,12 +444,19 @@ The constructs for achieving these different goals are however very similar; bot
 
 ### <a name="#command"></a>Command
 ![image](resources/command-pattern-structure.png)
+![image](resources/command-pattern-request.png)
+
 ##### Keys
 - Commands are an object-oriented replacement for callbacks.
-- Encapsulate a request (invocation) as an object.
-- Parameterize clients with different requests, queues, or log requests.
-- Support undoable operation.
+- Command Pattern encapsulates a request as an object;
+    - thereby letting you parameterize other objects with different requests, queue or log requests
 - Centralized action functionality.
+- Support undoable operation.
+    - Have historyList and redoList.
+- Store and schedule different request.
+    - Store them into lists.
+    - Manipulate them before they're completed.
+    - Put them onto a queue. 
 - a.k.a. Action Pattern, Transaction Pattern.
 
 ##### When
@@ -460,16 +467,15 @@ The constructs for achieving these different goals are however very similar; bot
 - Want to Re-execute code in case of failure.
 
 ##### Implementations
-1. Store and schedule different request.
-    - Store them into lists.
-    - Manipulate them before they're completed.
-    - Put them onto a queue.
-2. Undo/Redo
-    - Have historyList and redoList. 
+1. The client creates a command object.
+2. The client does a setCommand() to store the command object in
+the invoker.
+3. Later, the client asks the invoker to execute the command (it might me invoked, reused, or discarded).
 
 ##### Benefits
-- Decouples the object that invokes the operation from the one that
-  knows how to perform it (encapsulate things that need to be execute).
+- Decouples the object that invokes the operation from the one that knows how to perform it (encapsulate things that need to be execute).
+    - From the outside, no other objects really know what actions get performed on what receiver;
+      they just know that if they call the execute() method, their request will be serviced.
 - Easy to add new Commands, because you don't have to change existing
   classes.
 - Can undo/redo.
