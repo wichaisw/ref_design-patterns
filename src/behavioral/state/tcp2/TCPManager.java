@@ -5,10 +5,20 @@ public class TCPManager {
     private TCPConnectionState openState;
     private TCPConnectionState closedState;
 
-    public TCPManager() {
+    private static TCPManager tcpManagerInStance;
+
+    private TCPManager() {
         this.closedState = new ClosedTCPConnectionState();
         this.openState = new OpenTCPConnectionState();
         this.currentState = closedState;
+    }
+
+    public static TCPManager getInstance() {
+        if(tcpManagerInStance == null) {
+            tcpManagerInStance = new TCPManager();
+        }
+
+        return tcpManagerInStance;
     }
 
     protected void setCurrentState(TCPConnectionState state) {

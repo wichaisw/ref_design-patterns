@@ -2,7 +2,7 @@ package behavioral.observer;
 
 import java.util.ArrayList;
 
-public class Subject {
+public abstract class Subject {
     private ArrayList<Observer> observers = new ArrayList<>();
 
     public void registerObserver(Observer observer) {
